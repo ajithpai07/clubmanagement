@@ -2,6 +2,7 @@
 session_start();
       if(!isset($_SESSION['obid'])){
       header("Location: sec.php");}  
+      $date=$_SESSION['date'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -51,9 +52,7 @@ session_start();
   </div>
 <div class="container">
 	<form method="post">
-		<label>Select Date</label>
-		<input type="date" name="date" min="2019-09-30" max="2019-12-31"><br><br>
-		<input type="submit" value="Check" name="check"><br><br>
+		
 		<table border="1">
   <thead>
       <tr>
@@ -72,10 +71,9 @@ session_start();
     include('db.php');
     
 
-    if(isset($_POST['check']))
- {
- 	$date=$_POST['date'];
- 	$_SESSION['date']=$date;
+  
+ 	
+ 	
     $sql1 = mysqli_query($con,"SELECT * FROM `hallbooking` WHERE hid='1' AND bdate='$date'");
     $sql2 = mysqli_query($con,"SELECT * FROM `hallbooking` WHERE hid='2' AND bdate='$date'");
     $sql3 = mysqli_query($con,"SELECT * FROM `hallbooking` WHERE hid='3' AND bdate='$date'");
@@ -270,7 +268,7 @@ session_start();
         </tr>
       ';
       }   
- }
+ 
 
       ?>
   </tbody>

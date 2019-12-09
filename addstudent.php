@@ -129,8 +129,8 @@ session_start();
     elseif ($check == "OTHER") {
       $dno = 6;
     }
-		
-       $sql="INSERT INTO student(sname,spassword,dno) VALUES ('$sname','$spassword','$dno')";
+		$aid=$_SESSION['aid'];
+       $sql="INSERT INTO student(sname,spassword,dno,aid) VALUES ('$sname','$spassword','$dno','$aid')";
         $result= mysqli_query($con,$sql);
        
           echo "

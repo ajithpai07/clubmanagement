@@ -1,3 +1,8 @@
+<?php 
+session_start();
+      if(!isset($_SESSION['aid'])){
+      header("Location: admin.php");}  
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,7 +33,7 @@
   }
 	</style>
 </head>
-<body style=" background-image:url('public/frontside/images/logbg.png'); background-repeat: no-repeat;background-size: cover;">
+<body style=" background-image:url('logbg.png'); background-repeat: no-repeat;background-size: cover;">
 <div class="title">
 	<h1>ADD STAFF FOR CLUB</h1>
 </div>
@@ -69,9 +74,9 @@ $sfid =$_POST['sfid'];
 $cid = $_SESSION['cid'];
 $mname =$_POST['sfname'];
 $dno = $_POST['dno'];
-
+$aid=$_SESSION['aid'];
 $mpassword=$_POST['password'];
-$sql = "INSERT INTO `mentor`(`mname`,`mpassword`,`dno`,`cid`,`sfid`) VALUES ('$mname','$mpassword','$dno','$cid','$sfid')";
+$sql = "INSERT INTO `mentor`(`mname`,`mpassword`,`dno`,`cid`,`sfid`,`aid`) VALUES ('$mname','$mpassword','$dno','$cid','$sfid','$aid')";
 $result= mysqli_query($con,$sql);
 
 

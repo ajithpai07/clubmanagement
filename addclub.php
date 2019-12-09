@@ -91,9 +91,9 @@ session_start();
 		<select name="department" required><br>
   <option value="CSE">CSE</option>
   <option value="ECE">ECE</option>
-  <option value="CIV">CIV</option>
-  <option value="ISE">ISE</option>
-  <option value="MECH">MECH</option>
+  <option value="EEE">EEE</option>
+  <option value="EIE">EIE</option>
+  <option value="MEE">MEE</option>
   <option value="OTHER">OTHER</option>
 </select><br><br>
 <input type="submit" value="Create" name="create"><br>
@@ -109,23 +109,24 @@ session_start();
 		if ($check == "CSE") {
       $dno = 1;
     }
-    elseif ($check == "ISE") {
+    elseif ($check == "ECE") {
       $dno = 2;
     }
-    elseif ($check == "ECE") {
+    elseif ($check == "EEE") {
       $dno = 3;
     }
-    elseif ($check == "MECH") {
+    elseif ($check == "EIE") {
       $dno = 4;
     }
-    elseif ($check == "CIV") {
+    elseif ($check == "MEE") {
       $dno = 5;
     }
     elseif ($check == "OTHER") {
       $dno = 6;
     }
+    $aid=$_SESSION['aid'];
 		
-        $sql="INSERT INTO club(cname,dno) VALUES ('$cname','$dno')";
+        $sql="INSERT INTO club(cname,dno,aid) VALUES ('$cname','$dno','$aid')";
         $result= mysqli_query($con,$sql);
           echo "
           <script>

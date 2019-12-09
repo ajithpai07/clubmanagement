@@ -1,4 +1,9 @@
 <?php 
+session_start();
+      if(!isset($_SESSION['mid'])){
+      header("Location: mentor.php");}  
+?>
+<?php 
 $eid=$_GET['eid'];
 
 include('db.php');

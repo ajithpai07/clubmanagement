@@ -40,7 +40,7 @@ session_start();
   }
 	</style>
 </head>
-<body style=" background-image: url('public/frontside/images/logbg.png'); background-repeat: no-repeat;background-size: cover;">
+<body style=" background-image: url('logbg.png'); background-repeat: no-repeat;background-size: cover;">
 <div class="title">
 	<h1>MENTOR APPROVAL</h1>
 </div>

@@ -80,7 +80,8 @@ $ename=$_POST['ename'];
 $edesp=$_POST['edesp'];
 $date=$_POST['date'];
 $zero=0;
-$sql = "INSERT INTO `event`(`ename`,`edesp`,`date`,`club`,`dno`,`cid`,`approval`) VALUES ('$ename','$edesp','$date','$cname','$dno','$cid','$zero')";
+$obid=$_SESSION['obid'];
+$sql = "INSERT INTO `event`(`ename`,`edesp`,`date`,`club`,`dno`,`cid`,`approval`,`open`,`obid`) VALUES ('$ename','$edesp','$date','$cname','$dno','$cid','$zero','$zero','$obid')";
 $result= mysqli_query($con,$sql);
 echo "
       <script>

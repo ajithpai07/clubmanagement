@@ -76,16 +76,22 @@ session_start();
 	
 		$bid=$_SESSION['obid'];
 		
-			echo'<a href="hallbooking.php?obid='.$_SESSION['obid'].'">Book hall for your event</a><br><br>
+			 echo'<a href="event.php?obid='.$_SESSION['obid'].'">Add new event</a><br><br>
 		    
 			';
 
-		 	 echo'<a href="event.php?obid='.$_SESSION['obid'].'">Add new event</a><br><br>
+			echo'<a href="selectevent.php?obid='.$_SESSION['obid'].'">Book hall for your event</a><br><br>
 		    
 			';
-			echo'<a href="viewevent.php?obid='.$_SESSION['obid'].'">View Registrations</a><br><br>
+
+			echo'<a href="open.php?obid='.$_SESSION['obid'].'">Open Registrations</a><br><br>
 		    
 			';
+
+		 	echo'<a href="viewevent.php?obid='.$_SESSION['obid'].'">View Registrations</a><br><br>
+		    
+			';
+
 			echo'<a href="close.php?obid='.$_SESSION['obid'].'">Close Registrations</a>
 		    
 			';

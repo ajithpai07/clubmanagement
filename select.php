@@ -93,7 +93,7 @@
   }
   </style>
 </head>
-<body style=" background-image:url('public/frontside/images/logbg.png'); background-repeat: no-repeat;background-size: cover;">
+<body style=" background-image:url('logbg.png'); background-repeat: no-repeat;background-size: cover;">
   <div class="container">
     <h1>SELECT STAFF FOR CLUB</h1>
   </div>

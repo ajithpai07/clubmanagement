@@ -45,7 +45,7 @@ session_start();
   }
   </style>
 </head>
-<body style=" background-image:url('public/frontside/images/logbg.png'); background-repeat: no-repeat;background-size: cover;">
+<body style=" background-image:url('logbg.png'); background-repeat: no-repeat;background-size: cover;">
 <div class="title">
   <h1>DEPARTMENT EVENTS</h1>
 </div>
@@ -55,8 +55,8 @@ session_start();
 		<select name="department" required>
   <option value="CSE">CSE</option>
   <option value="ECE">ECE</option>
-  <option value="ISE">ISE</option>
-  <option value="CIV">CIV</option>
+  <option value="EEE">EEE</option>
+  <option value="EIE">EIE</option>
   <option value="MECH">MECH</option>
   <option value="OTHER">OTHER</option>
 </select><br><br>
@@ -115,7 +115,7 @@ if(isset($_POST['search']))
     include('db.php');
     $one=1;
     
-    $sql = mysqli_query($con,"SELECT * FROM `event` WHERE dno='$dno' AND approval='$one'");
+    $sql = mysqli_query($con,"SELECT * FROM `event` WHERE dno='$dno' AND open='$one' AND approval='$one'");
     while ($res = mysqli_fetch_array($sql)) 
     {
       echo'

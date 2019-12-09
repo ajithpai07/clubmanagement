@@ -126,8 +126,8 @@ session_start();
 		elseif ($check == "OTHER") {
 			$dno = 6;
 		}
-		
-       $sql="INSERT INTO staff(sfname,sfpassword,dno) VALUES ('$sfname','$sfpassword','$dno')";
+		$aid=$_SESSION['aid'];
+       $sql="INSERT INTO staff(sfname,sfpassword,dno,aid) VALUES ('$sfname','$sfpassword','$dno','$aid')";
         $result= mysqli_query($con,$sql);
        
           echo "
