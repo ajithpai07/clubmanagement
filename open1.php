@@ -1,7 +1,7 @@
 <?php 
 session_start();
       if(!isset($_SESSION['obid'])){
-      header("Location: sec.php");}  
+      header("Location: OB.php");}  
 ?>
 <?php 
 $eid=$_GET['eid'];

@@ -1,7 +1,7 @@
 <?php 
 session_start();
       if(!isset($_SESSION['obid'])){
-      header("Location: sec.php");}  
+      header("Location: OB.php");}  
 ?>
 <!DOCTYPE html>
 <html>
@@ -80,6 +80,7 @@ session_start();
 $obid=$_SESSION['obid'];
 $check=$_GET['type'];
 $_SESSION['type']=$check;
+$eid=$_SESSION['eid'];
 include('db.php');
 
 	$sql1 = mysqli_query($con,"SELECT * FROM `officebearer` WHERE obid='$obid'");
@@ -104,6 +105,9 @@ if($check==1){
 if($slot==1){
 $insert = "INSERT INTO `hallbooking`(`hid`,`bdate`,`slot`,`slot2`,`slot3`,`booking`) VALUES ('$hid','$date','$clubname','$unbook','$unbook','$slot')";
 $result= mysqli_query($con,$insert);
+$add="UPDATE `event` SET approval=3 WHERE `eid`='$eid'";
+$final= mysqli_query($con,$add);
+
 echo "
           <script>
           alert('Booking Successful');
@@ -114,6 +118,8 @@ echo "
 if($slot==2){
 $insert = "INSERT INTO `hallbooking`(`hid`,`bdate`,`slot`,`slot2`,`slot3`,`booking`) VALUES ('$hid','$date','$unbook','$clubname','$unbook','$slot')";
 $result= mysqli_query($con,$insert);
+$add="UPDATE `event` SET approval=3 WHERE `eid`='$eid'";
+$final= mysqli_query($con,$add);
 echo "
           <script>
           alert('Booking Successful');
@@ -124,6 +130,8 @@ echo "
 if($slot==3){
 $insert = "INSERT INTO `hallbooking`(`hid`,`bdate`,`slot`,`slot2`,`slot3`,`booking`) VALUES ('$hid','$date','$unbook','$unbook','$clubname','$slot')";
 $result= mysqli_query($con,$insert);
+$add="UPDATE `event` SET approval=3 WHERE `eid`='$eid'";
+$final= mysqli_query($con,$add);
 echo "
           <script>
           alert('Booking Successful');
@@ -134,6 +142,8 @@ echo "
 if($slot==4){
 $insert = "INSERT INTO `hallbooking`(`hid`,`bdate`,`slot`,`slot2`,`slot3`,`booking`) VALUES ('$hid','$date','$clubname','$clubname','$unbook','$slot')";
 $result= mysqli_query($con,$insert);
+$add="UPDATE `event` SET approval=3 WHERE `eid`='$eid'";
+$final= mysqli_query($con,$add);
 echo "
           <script>
           alert('Booking Successful');
@@ -144,6 +154,8 @@ echo "
 if($slot==5){
 $insert = "INSERT INTO `hallbooking`(`hid`,`bdate`,`slot`,`slot2`,`slot3`,`booking`) VALUES ('$hid','$date','$clubname','$clubname','$clubname','$slot')";
 $result= mysqli_query($con,$insert);
+$add="UPDATE `event` SET approval=3 WHERE `eid`='$eid'";
+$final= mysqli_query($con,$add);
 echo "
           <script>
           alert('Booking Successful');
@@ -165,6 +177,8 @@ if($check==2)
         		
         	$insert = "UPDATE `hallbooking` SET `slot2`='$clubname', `booking`= '4' WHERE hid='$hid' AND bdate='$date'";
             $result= mysqli_query($con,$insert);
+            $add="UPDATE `event` SET approval=3 WHERE `eid`='$eid'";
+$final= mysqli_query($con,$add);
             echo "
           <script>
           alert('Booking Successful');
@@ -202,6 +216,8 @@ if($check==2)
         		
         	$insert = "UPDATE `hallbooking` SET `slot`='$clubname', `booking`= '4' WHERE hid='$hid' AND bdate='$date'";
             $result= mysqli_query($con,$insert);
+            $add="UPDATE `event` SET approval=3 WHERE `eid`='$eid'";
+$final= mysqli_query($con,$add);
             echo "
           <script>
           alert('Booking Successful');
@@ -213,6 +229,8 @@ if($check==2)
 	            {
 	            	$insert = "UPDATE `hallbooking` SET `slot3`='$clubname', `booking`= '7' WHERE hid='$hid' AND bdate='$date'";
                     $result= mysqli_query($con,$insert);
+                    $add="UPDATE `event` SET approval=3 WHERE `eid`='$eid'";
+$final= mysqli_query($con,$add);
                     echo "
           <script>
           alert('Booking Successful');
@@ -239,6 +257,8 @@ if($check==2)
         		
         	$insert = "UPDATE `hallbooking` SET `slot`='$clubname', `booking`= '6' WHERE hid='$hid' AND bdate='$date'";
             $result= mysqli_query($con,$insert);
+            $add="UPDATE `event` SET approval=3 WHERE `eid`='$eid'";
+$final= mysqli_query($con,$add);
             echo "
           <script>
           alert('Booking Successful');
@@ -250,6 +270,8 @@ if($check==2)
 	            {
 	            	$insert = "UPDATE `hallbooking` SET `slot2`='$clubname', `booking`= '7' WHERE hid='$hid' AND bdate='$date'";
                     $result= mysqli_query($con,$insert);
+                    $add="UPDATE `event` SET approval=3 WHERE `eid`='$eid'";
+$final= mysqli_query($con,$add);
                     echo "
           <script>
           alert('Booking Successful');
@@ -262,6 +284,8 @@ if($check==2)
 	            {
 	            	$insert = "UPDATE `hallbooking` SET `slot`='$clubname',`slot2`='$clubname', `booking`= '5' WHERE hid='$hid' AND bdate='$date'";
                     $result= mysqli_query($con,$insert);
+                    $add="UPDATE `event` SET approval=3 WHERE `eid`='$eid'";
+$final= mysqli_query($con,$add);
                     echo "
           <script>
           alert('Booking Successful');
@@ -284,6 +308,8 @@ if($check==2)
          elseif($booking==4 and ($slot==3)){
 	           $insert = "UPDATE `hallbooking` SET `slot3`='$clubname', `booking`= '5' WHERE hid='$hid' AND bdate='$date'";
                     $result= mysqli_query($con,$insert);
+                    $add="UPDATE `event` SET approval=3 WHERE `eid`='$eid'";
+$final= mysqli_query($con,$add);
                     echo "
           <script>
           alert('Booking Successful');
@@ -315,6 +341,8 @@ if($check==2)
         elseif($booking==6 and ($slot==2)){
         	  $insert = "UPDATE `hallbooking` SET `slot2`='$clubname', `booking`= '5' WHERE hid='$hid' AND bdate='$date'";
                     $result= mysqli_query($con,$insert);
+                    $add="UPDATE `event` SET approval=3 WHERE `eid`='$eid'";
+$final= mysqli_query($con,$add);
                     echo "
           <script>
           alert('Booking Successful');
@@ -336,6 +364,8 @@ if($check==2)
          elseif($booking==7 and ($slot==1)){
         	  $insert = "UPDATE `hallbooking` SET `slot`='$clubname', `booking`= '5' WHERE hid='$hid' AND bdate='$date'";
                     $result= mysqli_query($con,$insert);
+                    $add="UPDATE `event` SET approval=3 WHERE `eid`='$eid'";
+$final= mysqli_query($con,$add);
                     echo "
           <script>
           alert('Booking Successful');

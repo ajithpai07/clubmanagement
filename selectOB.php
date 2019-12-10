@@ -67,7 +67,7 @@ $sid =$_POST['sid'];
 
 $obname =$_POST['sname'];
 $obpassword=$_POST['password'];
-$sql = "INSERT INTO `officebearer`(`obname`,`obpassword`,`cid`,`sid`,'mid') VALUES ('$obname','$obpassword','$cid','$sid','$mid')";
+$sql = "INSERT INTO `officebearer`(`obname`,`obpassword`,`cid`,`sid`,`mid`) VALUES ('$obname','$obpassword','$cid','$sid','$mid')";
 
 $result= mysqli_query($con,$sql);
 

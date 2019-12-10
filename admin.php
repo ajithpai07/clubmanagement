@@ -105,7 +105,7 @@
 	 { session_start();
 		$username=$_POST['Username'];
 		$password=$_POST['Password'];
-        $sql="SELECT * FROM `admin` WHERE aname='$username' AND apassword='$password'";
+        $sql="SELECT * FROM `admin` WHERE aid='$username' AND apassword='$password'";
         $result= mysqli_query($con,$sql);
         $check= mysqli_fetch_array($result);
         if (isset($check)) 

@@ -90,11 +90,12 @@ session_start();
 		</form>
 	</div>
  <?php 
+  $aid=$_SESSION['aid'];
 	 include('db.php');
 	 if(isset($_POST['create']))
 	 {
 	    $dname=$_POST['dname'];
-      $aid=$_SESSION['aid'];
+     
 
         $sql="INSERT INTO department(dname,aid) VALUES ('$dname','$aid')";
         $result= mysqli_query($con,$sql);

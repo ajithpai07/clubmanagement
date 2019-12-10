@@ -127,6 +127,7 @@ session_start();
 			$dno = 6;
 		}
 		$aid=$_SESSION['aid'];
+    
        $sql="INSERT INTO staff(sfname,sfpassword,dno,aid) VALUES ('$sfname','$sfpassword','$dno','$aid')";
         $result= mysqli_query($con,$sql);
        

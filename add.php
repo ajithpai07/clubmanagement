@@ -40,7 +40,7 @@ session_start();
 	<?php 
 	$sfid = $_GET['sfid'];
 	include('db.php');
-		session_start();
+	
 $result = mysqli_query($con,"SELECT cname from `club` where cid ='".$_SESSION['cid']."'");
 $row = mysqli_fetch_array($result);
 $cd = $row['cname'];

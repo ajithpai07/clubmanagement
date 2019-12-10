@@ -57,7 +57,7 @@ session_start();
   <option value="ECE">ECE</option>
   <option value="EEE">EEE</option>
   <option value="EIE">EIE</option>
-  <option value="MECH">MECH</option>
+  <option value="MEE">MEE</option>
   <option value="OTHER">OTHER</option>
 </select><br><br>
 <input type="submit" value="Search" name="search">

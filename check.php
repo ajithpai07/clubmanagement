@@ -1,11 +1,11 @@
 <?php 
 session_start();
       if(!isset($_SESSION['obid'])){
-      header("Location: sec.php");}  
+      header("Location: OB.php");}  
 ?>
 <?php 
 $eid=$_GET['eid'];
-
+$_SESSION['eid']=$eid;
 include('db.php');
 
 $sql2 = mysqli_query($con,"SELECT approval FROM event WHERE eid='$eid' ");
@@ -21,7 +21,19 @@ $_SESSION['date']=$res['date'];
           </script>
           ";
 }
-else{
+else if($res2['approval']==3){
+     $sql = mysqli_query($con,"SELECT * FROM event WHERE eid='$eid' ");
+     
+$res = mysqli_fetch_array($sql);
+$_SESSION['date']=$res['date'];
+ echo "
+          <script>
+          alert('Already booking has been done for this event do you still want to continue?');
+          window.location='hallbooking.php';
+          </script>
+          ";
+}
+else {
 	
           echo "
           <script>
