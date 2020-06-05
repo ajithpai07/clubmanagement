@@ -7,49 +7,9 @@ session_start();
 <html>
 <head>
 	<title>Search Events</title>
-  <style>
-    .title{
-  position: absolute;
-  top: 20%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  }
-  .title h1{
-    color: black;
-    font-size: 40px;
-
-  }
-   .container{
-    
-    color: white;
-    border: 1px solid black;
-    background: black;
-    text-decoration-color: white;
-    font-size: 20px;
-    position: absolute;
-    margin-left: 35%;
-    padding:20px;
-    top: 30%;
-    width: 28%;
-    height: auto;
-    display: inline;
-    text-align: center;
-  }
-  .container a{
-    text-decoration-line: none;
-    color: white;
-    font-size: 20px;
-  }
-  .container a:hover{
-    color: red;
-  }
-  </style>
 </head>
-<body style=" background-image:url('logbg.png'); background-repeat: no-repeat;background-size: cover;">
-<div class="title">
-  <h1>DEPARTMENT EVENTS</h1>
-</div>
-<div class="container">
+<body>
+<div>
 	<form method="post">
 		<label>Enter the department of event</label>
 		<select name="department" required>
@@ -59,12 +19,12 @@ session_start();
   <option value="EIE">EIE</option>
   <option value="MEE">MEE</option>
   <option value="OTHER">OTHER</option>
-</select><br><br>
+</select><br>
 <input type="submit" value="Search" name="search">
 
 
 	</form>
-
+</div>
 <?php 
 include('db.php');
 
@@ -114,8 +74,7 @@ if(isset($_POST['search']))
     
     include('db.php');
     $one=1;
-    
-    $sql = mysqli_query($con,"SELECT * FROM `event` WHERE dno='$dno' AND open='$one' AND approval='$one'");
+    $sql = mysqli_query($con,"SELECT * FROM `event` WHERE dno='$dno' AND approval='$one'");
     while ($res = mysqli_fetch_array($sql)) 
     {
       echo'
@@ -139,9 +98,7 @@ if(isset($_POST['search']))
 
       ?>
   </tbody>
-</table><br>
-<a href="studentdash.php">Back to Dashboard</a>
+</table>
 	</form>
-  </div>
 </body>
 </html>

@@ -1,34 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Admin Login</title>
+	<title>Office Bearer Login</title>
 </head>
 <body>
 	<div>
 <form method="post">
 <label>Username</label>
-<input type="name" name="Username" required><br>
+<input type="number" name="obid" required><br>
 <label>Password</label>
 <input type="password" name="Password" required><br>
-<input type="submit" value="Login" name="login">
+<input type="submit" value="login" name="login">
 <a href="home.php">Back to Select Login Page</a>
 </form></div>
 
 <?php 
 	 include('db.php');
+
+   session_start();
 	 if(isset($_POST['login']))
-	 { session_start();
-		$username=$_POST['Username'];
+	 {
+		$username=$_POST['obid'];
 		$password=$_POST['Password'];
-        $sql="SELECT * FROM `admin` WHERE aname='$username' AND apassword='$password'";
+
+        $sql="SELECT * FROM `officebearer` WHERE obid='$username' AND obpassword='$password'";
         $result= mysqli_query($con,$sql);
         $check= mysqli_fetch_array($result);
         if (isset($check)) 
-        {$_SESSION['aid']=$username;
+        {
+           $_SESSION['obid']= $username;
+           
           echo "
           <script>
           alert('Login Successful');
-          window.location='admindash.php';
+          window.location= 'secdash.php';
           </script>
           ";
         }
@@ -37,7 +42,7 @@
            echo "
           <script>
           alert('Login Unsuccessful');
-          window.location='admin.php';
+          window.location='sec.php';
           </script>
           ";
         }

@@ -1,79 +1,41 @@
 <?php 
 session_start();
       if(!isset($_SESSION['obid'])){
-      header("Location: OB.php");}  
-      $date=$_SESSION['date'];
+      header("Location: sec.php");}  
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Hall Booking</title>
-  <style>
-  .container{
-    
-    color: white;
-    border: 1px solid black;
-    background: black;
-    text-decoration-color: white;
-    font-size: 20px;
-    position: absolute;
-    margin-left: 30%;
-    padding:20px;
-    top: 30%;
-    width: auto;
-    height: auto;
-    display: inline;
-    text-align: center;
-  }
-  .container a{
-    text-decoration-line: line;
-    color: white;
-  }
-  .container a:hover{
-    color:green;
-  }
-    .title{
-  
-  position: absolute;
-  top:15%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  }
-  .title h1{
-    color: black;
-    font-size: 40px;
-
-  }
-  </style>
 </head>
-<body style=" background-image:url('logbg.png'); background-repeat: no-repeat;background-size: cover;">
-  <div class="title">
-    <h1>Book Hall</h1>
-  </div>
-<div class="container">
+<body>
+<div>
 	<form method="post">
-		
+		<label>Select Date</label>
+		<input type="date" name="date" min="2019-09-30" max="2019-12-31">
+		<input type="submit" value="Check" name="check"><br>
 		<table border="1">
   <thead>
       <tr>
       <th>Hall ID</th>
       <th>Hall Name</th>
-      <th>9:00 to 10:50</th>
-      <th>11:15 to 1:05</th>
-      <th>1:55 to 4:30</th>
+      <th>8:10 to 10:10</th>
+      <th>10:30 to 12:30</th>
+      <th>1:30 to 3:30</th>
       <th>Book</th>
     </tr>
   </thead>
   <tbody>
-  	<a href="secdash.php">Go Back To Dash Board</a><br><br>
+  	<a href="secdash.php">Go Back To Dash Board</a>
     <?php 
      
     include('db.php');
     
 
-  
- 	
- 	
+    if(isset($_POST['check']))
+ {
+ 	$date=$_POST['date'];
+ 	$_SESSION['date']=$date;
     $sql1 = mysqli_query($con,"SELECT * FROM `hallbooking` WHERE hid='1' AND bdate='$date'");
     $sql2 = mysqli_query($con,"SELECT * FROM `hallbooking` WHERE hid='2' AND bdate='$date'");
     $sql3 = mysqli_query($con,"SELECT * FROM `hallbooking` WHERE hid='3' AND bdate='$date'");
@@ -174,14 +136,14 @@ session_start();
       ';
       }
 
-      $res4= mysqli_fetch_array($sql4);
+      $res4 = mysqli_fetch_array($sql4);
     	if($res4=='')
       {
     
       echo'
       <tr>
       <td>4</td>      
-      <td>Rama</td>     
+      <td>Vyasa</td>     
        	<td>Unbooked</td>
       	<td>Unbooked</td>
       	<td>Unbooked</td>
@@ -196,30 +158,28 @@ session_start();
       echo'
       <tr>
       <td>'.$res4['hid'].'</td>      
-      <td>Rama</td>     
+      <td>Vyasa</td>     
        	<td>'.$res4['slot'].'</td>
       	<td>'.$res4['slot2'].'</td>
       	<td>'.$res4['slot3'].'</td>
       	<td><a href="book.php?obid='.$_SESSION['obid'].'&hid=4&type=2">Click to Book</a></td>
       	</tr>
       ';
-      }   
+      }
 
-
-
-       $res5 = mysqli_fetch_array($sql5);
-      if($res5=='')
+$res5 = mysqli_fetch_array($sql5);
+    	if($res5=='')
       {
     
       echo'
       <tr>
       <td>5</td>      
-      <td>Vyasa</td>     
-        <td>Unbooked</td>
-        <td>Unbooked</td>
-        <td>Unbooked</td>
-        <td><a href="book.php?obid='.$_SESSION['obid'].'&hid=4&type=1">Click to Book</a></td>
-        </tr>
+      <td>Rama</td>     
+       	<td>Unbooked</td>
+      	<td>Unbooked</td>
+      	<td>Unbooked</td>
+      	<td><a href="book.php?obid='.$_SESSION['obid'].'&hid=5&type=1">Click to Book</a></td>
+      	</tr>
       ';
       }
 
@@ -229,28 +189,28 @@ session_start();
       echo'
       <tr>
       <td>'.$res5['hid'].'</td>      
-      <td>Vyasa</td>     
-        <td>'.$res5['slot'].'</td>
-        <td>'.$res5['slot2'].'</td>
-        <td>'.$res5['slot3'].'</td>
-        <td><a href="book.php?obid='.$_SESSION['obid'].'&hid=4&type=2">Click to Book</a></td>
-        </tr>
+      <td>Rama</td>     
+       	<td>'.$res5['slot'].'</td>
+      	<td>'.$res5['slot2'].'</td>
+      	<td>'.$res5['slot3'].'</td>
+      	<td><a href="book.php?obid='.$_SESSION['obid'].'&hid=5&type=2">Click to Book</a></td>
+      	</tr>
       ';
-      }   
+      }
 
-       $res6 = mysqli_fetch_array($sql6);
-      if($res6=='')
+      $res6 = mysqli_fetch_array($sql6);
+    	if($res6=='')
       {
     
       echo'
       <tr>
       <td>6</td>      
-      <td>E-Learning</td>     
-        <td>Unbooked</td>
-        <td>Unbooked</td>
-        <td>Unbooked</td>
-        <td><a href="book.php?obid='.$_SESSION['obid'].'&hid=4&type=1">Click to Book</a></td>
-        </tr>
+      <td>Elearning</td>     
+       	<td>Unbooked</td>
+      	<td>Unbooked</td>
+      	<td>Unbooked</td>
+      	<td><a href="book.php?obid='.$_SESSION['obid'].'&hid=6&type=1">Click to Book</a></td>
+      	</tr>
       ';
       }
 
@@ -260,15 +220,18 @@ session_start();
       echo'
       <tr>
       <td>'.$res6['hid'].'</td>      
-      <td>E-Learning</td>     
-        <td>'.$res6['slot'].'</td>
-        <td>'.$res6['slot2'].'</td>
-        <td>'.$res6['slot3'].'</td>
-        <td><a href="book.php?obid='.$_SESSION['obid'].'&hid=4&type=2">Click to Book</a></td>
-        </tr>
+      <td>Elearning</td>     
+       	<td>'.$res6['slot'].'</td>
+      	<td>'.$res6['slot2'].'</td>
+      	<td>'.$res6['slot3'].'</td>
+      	<td><a href="book.php?obid='.$_SESSION['obid'].'&hid=6&type=2">Click to Book</a></td>
+      	</tr>
       ';
-      }   
- 
+      }
+
+
+    
+ }
 
       ?>
   </tbody>

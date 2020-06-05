@@ -2,103 +2,17 @@
 <html>
 <head>
 	<title>Student Login</title>
-  <style>
-  .login-box{
-        width: 320px;
-        height:420px;
-        background:black;
-        color:#fff;
-        top:58%;
-        left:50%;
-        position:absolute;
-        transform: translate(-50%,-50%);
-        box-sizing: border-box;
-        padding: 70px 30px;
-        text-align: center;
-      }
-
-      .avatar{
-        width:100px;
-        height:100px;
-        border-radius: 50%;
-        position: absolute;
-        top:-50px;
-        left:calc(50% - 50px);
-
-}
-    .login-box label{
-      margin:0;
-      padding:0;
-      font-weight: bold;
-      font-size: 20px;
-    }
-    .login-box input{
-      width:100%;
-      margin-bottom: 20px;
-
-    }
-    .login-box input[type="password"],input[type="password"],input[type="name"],input[type="username"]
-    {
-      border:none;
-      border-bottom: 1px solid #fff;
-      background: transparent;
-      outline: none;
-      height:40px;
-      color:#fff;
-      font-size: 16px;
-    }
-    .login-box input[type="submit"]
-    {
-      border: none;
-      outline:none;
-      height: 40px;
-      background:#1c8adb;
-      font-size: 18px;
-    }
-    .login-box input[type="submit"]:hover{
-      cursor:pointer;
-      background:#39dc79;
-      color:#000;
-    }
-    .login-box a{
-      text-decoration: none;
-      font-size: 18px;
-      color:#fff;
-    }
-    .login-box a:hover{
-      color:#39dc79;
-    }
-     .title{
-  
-  position: absolute;
-  top:15%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  }
-  .title h1{
-    color: black;
-    font-size: 40px;
-
-  }
-    </style>
 </head>
-<body style=" background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)) , url('logbg.png'); background-repeat: no-repeat;background-size: cover;">
-<div class="title">
-    <h1>STUDENT LOGIN</h1>
-  </div>
-  <div class="login-box">
-  <img src="student.png" class="avatar" >
-  
-	
+<body>
+	<div>
 <form method="post">
 <label>Username</label>
-<input type="name" name="Username" placeholder="Enter username"required><br>
+<input type="name" name="Username" required><br>
 <label>Password</label>
-<input type="password" name="Password" placeholder="Enter password"required><br>
-<input type="submit" value="Login" name="login"><br><br>
+<input type="password" name="Password" required><br>
+<input type="submit" value="Login" name="login">
 <a href="home.php">Back to Select Login Page</a>
-</form>
-</div>
+</form></div>
 
 <?php 
 	 include('db.php');
@@ -113,9 +27,6 @@
         if (isset($check)) 
         {
            $_SESSION['sid']= $username;
-           $sql1 = mysqli_query($con,"SELECT * FROM `student` WHERE sid='$username' AND spassword='$password' ");
-           $res1 = mysqli_fetch_array($sql1);
-           $_SESSION['dno']=$res1['dno'];
           echo "
           <script>
           alert('Login Successful');

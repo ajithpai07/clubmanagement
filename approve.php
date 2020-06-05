@@ -6,45 +6,10 @@ session_start();
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Approval</title>
-	<style>
-	.container{
-		border: 1px solid black;
-		background: black;
-		color: white;
-		width: 30%;
-		height: auto;
-		padding: 20px;
-		text-align: center;
-		position: absolute;
-		top: 30%;
-		left: 35%
-	}
-	.container a{
-		font-size: 18px;
-		color: white;
-	}
-	.container a:hover{
-		color: green;
-	}
-	.title{
-  position: absolute;
-  top: 20%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  }
-  .title h1{
-    color: black;
-    font-size: 40px;
-
-  }
-	</style>
+	<title></title>
 </head>
-<body style=" background-image: url('logbg.png'); background-repeat: no-repeat;background-size: cover;">
-<div class="title">
-	<h1>MENTOR APPROVAL</h1>
-</div>
-	<div class="container">
+<body>
+	<div>
 	<form method="post">
 		<table border="1">
 	<thead>
@@ -90,11 +55,10 @@ session_start();
 
 		  ?>
 	</tbody>
-</table><br>
+</table>
 	</form>
-
+</div>
 
 <a href="mentordash.php">Go Back To Dash Board</a>
-</div>
 </body>
 </html>
